@@ -19,6 +19,7 @@ public class CountryListActivity extends AppCompatActivity {
 
     private ArrayList<String> country_list;
     private ArrayAdapter<String> adapter;
+    private String country;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class CountryListActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT
                 ).show();
 
+                country = country_list.get(pos);
+                editCountry(item,country);
 
             }
         });
@@ -90,9 +93,7 @@ public class CountryListActivity extends AppCompatActivity {
                 if(resultCode == AppCompatActivity.RESULT_OK){
                     //country_list = data.getStringExtra("country");
                     //title_text.setText(title);
-
                 }
-
         }
 
 

@@ -21,7 +21,6 @@ public class EditCountry extends AppCompatActivity {
         setContentView(R.layout.activity_edit_country);
 
         //(II)
-
         Intent intent = getIntent();
         String country_A = intent.getStringExtra("country");
         edit_country = (EditText)findViewById(R.id.edit_country);
