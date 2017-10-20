@@ -4,4 +4,6 @@
     <string name="confirm">Confirmar</string>
     <string name="confirm_message">"Seguro que quieres eliminar "</string>
     <string name="erase">Eliminar</string>
+    <string name="country">País:</string>
+    <string name="save">Guardar</string>
 </resources>
