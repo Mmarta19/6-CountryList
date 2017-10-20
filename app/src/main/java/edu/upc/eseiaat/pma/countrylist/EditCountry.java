@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class EditCountry extends AppCompatActivity {
 
     private EditText edit_country;
+    private int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +24,22 @@ public class EditCountry extends AppCompatActivity {
         //(II)
         Intent intent = getIntent();
         String country_A = intent.getStringExtra("country");
+        pos = intent.getIntExtra("pos",-1);
+
         edit_country = (EditText)findViewById(R.id.edit_country);
         edit_country.setText(country_A);
+
     }
 
     public void saveCountry(View view) {
         // (III)
         String new_country=edit_country.getText().toString();
+
         Intent data = new Intent();
+
         data.putExtra("new_country", new_country);
+        data.putExtra("pos", pos);
+
         setResult(RESULT_OK, data);
         finish();
     }

@@ -46,7 +46,7 @@ public class CountryListActivity extends AppCompatActivity {
                 ).show();
 
                 country = country_list.get(pos);
-                editCountry(item,country);
+                editCountry(item,country,pos);
 
             }
         });
@@ -76,11 +76,12 @@ public class CountryListActivity extends AppCompatActivity {
         });
     }
 
-    public void editCountry(View view,String country) {
+    public void editCountry(View view,String country,int pos) {
 
         //  (I)
         Intent intent = new Intent(this, EditCountry.class);
         intent.putExtra("country", country);
+        intent.putExtra("pos", pos);
         startActivityForResult(intent, 0);
     }
 
@@ -91,8 +92,10 @@ public class CountryListActivity extends AppCompatActivity {
             //(IV)
             case 0:
                 if(resultCode == AppCompatActivity.RESULT_OK){
-                    //country_list = data.getStringExtra("country");
-                    //title_text.setText(title);
+                    String new_country = data.getStringExtra("country");
+                    int pos = data.getIntExtra("pos",-1);
+                    country_list.set(pos,new_country);
+                    adapter.notifyDataSetChanged();
                 }
         }
 
