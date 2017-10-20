@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -72,24 +73,29 @@ public class CountryListActivity extends AppCompatActivity {
         });
     }
 
-    public void editCountry(View view) {
+    public void editCountry(View view,String country) {
 
         //  (I)
-
-        // 1. crear un 'intent'
-        //objecte de la classe intent
-
         Intent intent = new Intent(this, EditCountry.class);
-        // this és un punter a l'activitat actual, Vull obrir una activitat de aquesta classe ( editTitleActivity)
-
-        // 2. Afegir paràmetres ( dades extra) a la crida de l'activitat
-        intent.putExtra("country", country_list);
-
-        // 3. Passa l'intent a Android perquè obri l'activitat
-
-        //  startActivity(intent); no l'utilitzem
-        // cridem aquest mètode perquè l'activitat anterior ens torna algo
+        intent.putExtra("country", country);
         startActivityForResult(intent, 0);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch(requestCode){
+            //(IV)
+            case 0:
+                if(resultCode == AppCompatActivity.RESULT_OK){
+                    //country_list = data.getStringExtra("country");
+                    //title_text.setText(title);
+
+                }
+
+        }
+
+
     }
 
 
