@@ -33,7 +33,7 @@ public class EditCountry extends AppCompatActivity {
 
     public void saveCountry(View view) {
         // (III)
-        String new_country=edit_country.getText().toString();
+        String new_country = edit_country.getText().toString();
 
         Intent data = new Intent();
 

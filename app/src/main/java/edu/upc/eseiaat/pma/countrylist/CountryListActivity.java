@@ -92,7 +92,7 @@ public class CountryListActivity extends AppCompatActivity {
             //(IV)
             case 0:
                 if(resultCode == AppCompatActivity.RESULT_OK){
-                    String new_country = data.getStringExtra("country");
+                    String new_country = data.getStringExtra("new_country");
                     int pos = data.getIntExtra("pos",-1);
                     country_list.set(pos,new_country);
                     adapter.notifyDataSetChanged();
